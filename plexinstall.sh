@@ -12,3 +12,6 @@ wget https://downloads.plex.tv/plex-media-server-new/1.15.6.1079-78232c603/debia
 
 dpkg -i plexmediaserver_1.15.6.1079-78232c603_amd64.deb
 
+sudo systemctl enable plexmediaserver.service
+
+sudo systemctl start plexmediaserver.service
