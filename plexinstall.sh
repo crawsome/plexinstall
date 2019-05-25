@@ -8,7 +8,7 @@ mkdir ~/plexinstall/ || true
 cd ~/plexinstall/
 
 #download plex 
-wget https://downloads.plex.tv/plex-media-server/1.15.6.1079-78232c603/plexmediaserver_1.15.6.1079-78232c603_amd64.deb
+wget https://downloads.plex.tv/plex-media-server-new/1.15.6.1079-78232c603/debian/plexmediaserver_1.15.6.1079-78232c603_amd64.deb
 
 dpkg -i plexmediaserver_1.15.6.1079-78232c603_amd64.deb
 
