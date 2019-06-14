@@ -1,17 +1,23 @@
 #1/bin/sh
 
-# check if plex service account exists. If not, make a plex service account
-
-#make plex director
+#make plex directory
 mkdir ~/plexinstall/ || true
-
 cd ~/plexinstall/
 
-#download plex 
-wget https://downloads.plex.tv/plex-media-server-new/1.15.6.1079-78232c603/debian/plexmediaserver_1.15.6.1079-78232c603_amd64.deb
+#download plex (old way)
+#wget https://downloads.plex.tv/plex-media-server-new/1.15.6.1079-78232c603/debian/plexmediaserver_1.15.6.1079-78232c603_amd64.deb
+#dpkg -i plexmediaserver_1.15.6.1079-78232c603_amd64.deb
 
-dpkg -i plexmediaserver_1.15.6.1079-78232c603_amd64.deb
 
-sudo systemctl enable plexmediaserver.service
+# add repo
+echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
 
-sudo systemctl start plexmediaserver.service
+# install it with yes toggle
+apt-get install plexmediaserver -y
+
+# start the enable the service
+systemctl enable plexmediaserver.service
+
+# start the service
+systemctl start plexmediaserver.service
